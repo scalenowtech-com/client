@@ -189,7 +189,6 @@ nav {
   line-height: 5rem;
   transition-delay: .4s;
   visibility: hidden;
-  margin-left: 20px;
 }
 
 .nav-item::before {

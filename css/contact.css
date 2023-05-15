@@ -124,13 +124,12 @@
     color: #fff;
     text-decoration: none;
     transition-duration: 0.2s;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 0px;
-    font-weight: 700;
   }
   
   .contact-text a:hover {
-    color: #c3c3c3;
+    color: #005b85;
     text-decoration: none;
   }
   
@@ -150,7 +149,7 @@
   }
   
   .social-media-list li {
-    position: relative;
+    position: relative; 
     display: inline-block;
     height: 60px;
     width: 60px;
@@ -158,8 +157,8 @@
     line-height: 60px;
     border-radius: 50%;
     color: #fff;
-    background-color: #000000;
-    cursor: pointer;
+    background-color: #0891d0;
+    cursor: pointer; 
     transition: all .2s ease-in-out;
   }
 
