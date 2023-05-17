@@ -99,7 +99,7 @@
    
   <!-- about us start -->
   <div class="about-section" id="about">
-    <div class="inner-container">
+    <div class="inner-container will-fadeIn">
       <h1 class="top-text">About Us</h1>
       <p class="text">
         Scalenow Technosolutions Pvt Ltd (STL), a digital marketing and e-commerce service provider has been formed with the objective to build technology products used by corporate entities for business automation. STL is new business  with a mission to provide end-to-end digital solutions to organizations in the domain of digital marketing including  SEO, SEM, Paid media etc. Our team of experienced professionals is dedicated to delivering customized solutions that meet the unique needs of each client, and to building long-term partnerships based on trust, integrity, and mutual success. Through our commitment to innovation, excellence, and customer satisfaction,
@@ -116,9 +116,9 @@
    <!-- mission section start -->
    <section class="about-style-three" id="mission">
     <div class="container">
-                <div class="row">
+          <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                <div class="content-box">
+                <div class="content-box will-fadeIn">
                     <div class="top-content">
                         <div class="top-text">OUR MISSION</div>
                         <!-- <h2>Expert Human Resourcing solutions</h2> -->
@@ -567,7 +567,7 @@
                   <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">scalenow@scalenowtech.com</a></span></i></li>
 
                   <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">B-1,2nd Floor,Swastik Apartment Laha Bagan, South 24 Parganas 700084, West Bengal.</a></span></i>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.7169662123224!2d88.39340709999999!3d22.514799999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271e297bda7e1%3A0x932e24804810268e!2sMangalam%20Business%20Centre!5e0!3m2!1sen!2sin!4v1683288683741!5m2!1sen!2sin" width="330" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.7169662123224!2d88.39340709999999!3d22.514799999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271e297bda7e1%3A0x932e24804810268e!2sMangalam%20Business%20Centre!5e0!3m2!1sen!2sin!4v1683288683741!5m2!1sen!2sin" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </li>
                   
                 </ul>
@@ -605,7 +605,48 @@
   </div>
 </div>
 
+<script>
+    function Utils() {}
+        Utils.prototype = {
+            constructor: Utils,
+            isElementInView: function (element, fullyInView) {
+                var pageTop = $(window).scrollTop();
+                var pageBottom = pageTop + $(window).height();
+                var elementTop = $(element).offset().top;
+                var elementBottom = elementTop + $(element).height();
 
+                if (fullyInView === true) {
+                    return ((pageTop < elementTop) && (pageBottom > elementBottom));
+                } else {
+                    return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
+                }
+            }
+        };
+
+        var Utils = new Utils();
+        $(window).on('load', addFadeIn());
+        
+        $(window).scroll(function() {
+            addFadeIn(true);
+        });
+
+      function addFadeIn(repeat) {
+                  var classToFadeIn = ".will-fadeIn";
+                  
+                  $(classToFadeIn).each(function( index ) {
+                      var isElementInView = Utils.isElementInView($(this), false);
+                      if (isElementInView) {
+                          if(!($(this).hasClass('fadeInRight')) && !($(this).hasClass('fadeInLeft'))) {
+                              if(index % 2 == 0) $(this).addClass('fadeInRight');
+                              else $(this).addClass('fadeInLeft');
+                          }
+                      } else if(repeat) {
+                          $(this).removeClass('fadeInRight');
+                          $(this).removeClass('fadeInLeft');
+                      }
+                  });
+        }
+</script>
 
 <script>
     $(document).ready(function () {
